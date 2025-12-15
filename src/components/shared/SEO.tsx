@@ -13,9 +13,9 @@ interface SEOProps {
 export const SEO: React.FC<SEOProps> = ({
   title = 'Frontend Developer Portfolio | React & TypeScript',
   description = 'Портфолио фронтенд разработчика. Современные веб-приложения на React, TypeScript и современных технологиях.',
-  keywords = 'frontend, разработчик, react, typescript, портфолио, javascript',
-  image = './assets/images/og-image.jpg',
-  url = 'https://portfolio.example.com',
+  keywords = 'frontend, разработчик, react, typescript, портфолио, javascript, Шубина Арина',
+  image = './sparkle.svg',
+  url = 'https://portfolio-two-vert-q2wfci2uck.vercel.app/',
   type = 'website'
 }) => {
   return (
@@ -45,8 +45,8 @@ export const SEO: React.FC<SEOProps> = ({
       <link rel="canonical" href={url} />
       
       {/* Favicon */}
-      <link rel="icon" href="/favicon.ico" />
-      <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      <link rel="icon" href="/sparkle.svg" />
+      <link rel="apple-touch-icon" href="/sparkle.svg" />
     </Helmet>
   );
 };
