@@ -24,7 +24,8 @@ export const SEO: React.FC<SEOProps> = ({
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
-      
+      <meta name="author" content="Шубина Арина" />
+      <meta name="copyright" content="Шубина Арина" />
       {/* Open Graph */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
