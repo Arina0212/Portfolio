@@ -2,7 +2,6 @@ import React, { Suspense, lazy } from 'react';
 import { Layout } from './components/layout/Layout';
 import { LoadingSpinner } from './components/shared/LoadingSpinner';
 import { ParticleCursor } from './components/shared/ParticleCursor';
-import { SpeedInsights } from "@vercel/speed-insights/next"
 // Ленивая загрузка секций для оптимизации
 const Hero = lazy(() => import('./components/sections/Hero').then(module => ({ default: module.Hero })));
 const Projects = lazy(() => import('./components/sections/Projects').then(module => ({ default: module.Projects })));
@@ -14,7 +13,6 @@ function App() {
   return (
     <>
     <ParticleCursor />
-    <SpeedInsights/>
     <Layout>
       <Suspense fallback={<LoadingSpinner fullScreen />}>
         <Hero />
