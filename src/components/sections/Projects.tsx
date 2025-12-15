@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, MotionProps } from 'framer-motion';
 import { projects } from '../../data/projects.data';
 import type { IProject } from '../../types';
 import { ProjectCard } from '../ui/ProjectCard';
@@ -10,6 +10,11 @@ import { staggerContainer, fadeInUp } from '../../utils/animations';
 export const Projects: React.FC = () => {
   const [filter, setFilter] = useState<string>('all');
   const [visibleCount, setVisibleCount] = useState(9);
+
+  // Типизированный MotionDiv, чтобы className и другие HTML-пропсы корректно воспринимались TypeScript
+  const MotionDiv = motion.div as React.ComponentType<
+    React.HTMLAttributes<HTMLDivElement> & MotionProps
+  >;
 
   // Get all unique technologies
   const allTechnologies = Array.from(
@@ -31,21 +36,21 @@ export const Projects: React.FC = () => {
   return (
     <section id="projects" className="section bg-gray-50 dark:bg-gray-900/50">
       <div className="container">
-        <motion.div
+        <MotionDiv
           variants={staggerContainer}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
         >
-          <motion.div variants={fadeInUp} className="text-center mb-12">
+          <MotionDiv variants={fadeInUp} className="text-center mb-12">
             <h2 className="section-title">
               Мои <span className="gradient-text">проекты</span>
             </h2>
             
-          </motion.div>
+          </MotionDiv>
 
           {/* Technology filter */}
-          <motion.div variants={fadeInUp} className="mb-8">
+          <MotionDiv variants={fadeInUp} className="mb-8">
             <div className="flex flex-wrap justify-center gap-2 mb-6">
               {allTechnologies.slice(0, 8).map(tech => (
                 <Tag
@@ -64,10 +69,10 @@ export const Projects: React.FC = () => {
                 </Tag>
               )}
             </div>
-          </motion.div>
+          </MotionDiv>
 
           {/* Projects grid */}
-          <motion.div 
+          <MotionDiv 
             variants={staggerContainer}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
@@ -78,11 +83,11 @@ export const Projects: React.FC = () => {
                 index={index}
               />
             ))}
-          </motion.div>
+          </MotionDiv>
 
           {/* Load more button */}
           {visibleCount < filteredProjects.length && (
-            <motion.div
+            <MotionDiv
               variants={fadeInUp}
               className="text-center mt-12"
             >
@@ -92,11 +97,11 @@ export const Projects: React.FC = () => {
               >
                 Показать еще проекты
               </Button>
-            </motion.div>
+            </MotionDiv>
           )}
 
           {/* Projects summary */}
-          <motion.div 
+          <MotionDiv 
             variants={fadeInUp}
             className="mt-16 p-6 bg-gradient-to-r from-blue-500/10 to-purple-500/10 
                        rounded-2xl border border-blue-500/20"
@@ -123,8 +128,8 @@ export const Projects: React.FC = () => {
                 <div className="text-gray-600 dark:text-gray-400">Качество кода</div>
               </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </MotionDiv>
+        </MotionDiv>
       </div>
     </section>
   );

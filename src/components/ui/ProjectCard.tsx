@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, MotionProps } from 'framer-motion';
 import type { IProject } from '../../types';
 import { TechnologyTag } from './Tag';
 import { Button } from './Button';
@@ -15,8 +15,22 @@ interface ProjectCardProps {
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   const [isHovered, setIsHovered] = useState(false);
 
+  // Типизированные motion-компоненты для корректной поддержки HTML-пропсов
+  const MotionArticle = motion.article as React.ComponentType<
+    React.HTMLAttributes<HTMLElement> & MotionProps
+  >;
+  const MotionImg = motion.img as React.ComponentType<
+    React.ImgHTMLAttributes<HTMLImageElement> & MotionProps
+  >;
+  const MotionDiv = motion.div as React.ComponentType<
+    React.HTMLAttributes<HTMLDivElement> & MotionProps
+  >;
+  const MotionAnchor = motion.a as React.ComponentType<
+    React.AnchorHTMLAttributes<HTMLAnchorElement> & MotionProps
+  >;
+
   return (
-    <motion.article
+    <MotionArticle
       variants={fadeInUp}
       custom={index}
       className="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg 
@@ -35,7 +49,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
       {/* Image container */}
       <div className="relative h-48 overflow-hidden">
-        <motion.img
+        <MotionImg
           src={project.images.thumbnail}
           alt={project.title}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
@@ -44,13 +58,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         
         {/* Links overlay */}
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 20 }}
           className="absolute bottom-4 right-4 flex gap-2"
         >
           {project.links.github && (
-            <motion.a
+            <MotionAnchor
               variants={buttonHover}
               whileHover="hover"
               whileTap="tap"
@@ -61,10 +75,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               aria-label="View code on GitHub"
             >
               <FaGithub className="w-5 h-5" />
-            </motion.a>
+            </MotionAnchor>
           )}
           {project.links.live && (
-            <motion.a
+            <MotionAnchor
               variants={buttonHover}
               whileHover="hover"
               whileTap="tap"
@@ -75,9 +89,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               aria-label="View live demo"
             >
               <FaExternalLinkAlt className="w-5 h-5" />
-            </motion.a>
+            </MotionAnchor>
           )}
-        </motion.div>
+        </MotionDiv>
       </div>
 
       {/* Content */}
@@ -151,6 +165,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           </div>
         </div>
       </div>
-    </motion.article>
+    </MotionArticle>
   );
 };

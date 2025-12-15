@@ -43,8 +43,11 @@ export const Button: React.FC<ButtonProps> = ({
 
   const widthClass = fullWidth ? 'w-full' : '';
 
+  // MotionButton с ослабленной типизацией, чтобы избежать конфликтов типов MotionStyle/CSSProperties
+  const MotionButton = motion.button as React.ComponentType<any>;
+
   return (
-    <motion.button
+    <MotionButton
       variants={buttonHover}
       whileHover="hover"
       whileTap="tap"
@@ -60,6 +63,6 @@ export const Button: React.FC<ButtonProps> = ({
       )}
       {icon && !loading && <span className="mr-2">{icon}</span>}
       {children}
-    </motion.button>
+    </MotionButton>
   );
 };

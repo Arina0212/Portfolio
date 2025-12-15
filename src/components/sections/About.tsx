@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, MotionProps } from 'framer-motion';
 import { Card } from '../ui/Card';
 import { Button } from '../ui/Button';
 import { staggerContainer, fadeInUp } from '../../utils/animations';
@@ -29,10 +29,15 @@ export const About: React.FC = () => {
     }
   ];
 
+  // Типизированный MotionDiv, чтобы className и другие HTML-пропсы корректно воспринимались TypeScript
+  const MotionDiv = motion.div as React.ComponentType<
+    React.HTMLAttributes<HTMLDivElement> & MotionProps
+  >;
+
   return (
     <section id="about" className="section bg-gray-50 dark:bg-gray-900/50">
       <div className="container">
-        <motion.div
+        <MotionDiv
           variants={staggerContainer}
           initial="initial"
           whileInView="animate"
@@ -40,7 +45,7 @@ export const About: React.FC = () => {
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
         >
           {/* Left column - Image and intro */}
-          <motion.div variants={fadeInUp}>
+          <MotionDiv variants={fadeInUp}>
             <div className="relative">
               <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600 p-1">
                 <div className="w-full h-full rounded-2xl bg-gray-100 dark:bg-gray-800">
@@ -53,10 +58,10 @@ export const About: React.FC = () => {
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl rotate-12 -z-10" />
               <div className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full -z-10" />
             </div>
-          </motion.div>
+          </MotionDiv>
 
           {/* Right column - Text content */}
-          <motion.div variants={fadeInUp}>
+          <MotionDiv variants={fadeInUp}>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Немного <span className="gradient-text">обо мне</span>
             </h2>
@@ -119,8 +124,8 @@ export const About: React.FC = () => {
                 Связаться со мной
               </Button>
             </div>
-          </motion.div>
-        </motion.div>
+          </MotionDiv>
+        </MotionDiv>
       </div>
     </section>
   );

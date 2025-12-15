@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, MotionProps } from 'framer-motion';
 import { Card } from '../ui/Card';
 import { Button } from '../ui/Button';
 import { staggerContainer, fadeInUp } from '../../utils/animations';
@@ -15,6 +15,11 @@ export const Contact: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [copyStatus, setCopyStatus] = useState('');
+
+  // Явно типизированный div для корректной работы className и других HTML-пропсов
+  const MotionDiv = motion.div as React.ComponentType<
+    React.HTMLAttributes<HTMLDivElement> & MotionProps
+  >;
 
   const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
@@ -80,13 +85,13 @@ export const Contact: React.FC = () => {
   return (
     <section id="contact" className="section">
       <div className="container">
-        <motion.div
+        <MotionDiv
           variants={staggerContainer}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
         >
-          <motion.div variants={fadeInUp} className="text-center mb-12">
+          <MotionDiv variants={fadeInUp} className="text-center mb-12">
             <h2 className="section-title">
               Свяжитесь <span className="gradient-text">со мной</span>
             </h2>
@@ -94,7 +99,7 @@ export const Contact: React.FC = () => {
               Есть проект в разработке или хотите обсудить сотрудничество? 
               Буду рада помочь!
             </p>
-          </motion.div>
+          </MotionDiv>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Contact info */}
@@ -105,7 +110,7 @@ export const Contact: React.FC = () => {
                 </h3>
                 <div className="space-y-6">
                   {contactInfo.map((info, index) => (
-                    <motion.div
+                    <MotionDiv
                       key={index}
                       variants={fadeInUp}
                       custom={index}
@@ -123,18 +128,18 @@ export const Contact: React.FC = () => {
                           {info.value}
                         </p>
                       </div>
-                    </motion.div>
+                    </MotionDiv>
                   ))}
                 </div>
 
                 {copyStatus && (
-                  <motion.div
+                  <MotionDiv
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="mt-4 p-3 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-lg text-sm"
                   >
                     {copyStatus}
-                  </motion.div>
+                  </MotionDiv>
                 )}
 
                 <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
@@ -230,7 +235,7 @@ export const Contact: React.FC = () => {
               </Card>
             </div>
           </div>
-        </motion.div>
+        </MotionDiv>
       </div>
     </section>
   );

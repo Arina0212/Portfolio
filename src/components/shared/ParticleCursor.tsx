@@ -14,8 +14,8 @@ interface Particle {
 export const ParticleCursor: React.FC = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [particles, setParticles] = useState<Particle[]>([]);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationRef = useRef<number>();
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const animationRef = useRef<number | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;

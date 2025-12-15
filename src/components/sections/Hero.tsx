@@ -1,10 +1,15 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, MotionProps } from 'framer-motion';
 import { Button } from '../ui/Button';
 import { FaArrowDown, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { fadeInUp, staggerContainer } from '../../utils/animations';
 
 export const Hero: React.FC = () => {
+  // Типизированный MotionDiv, чтобы className и другие HTML-пропсы корректно воспринимались TypeScript
+  const MotionDiv = motion.div as React.ComponentType<
+    React.HTMLAttributes<HTMLDivElement> & MotionProps
+  >;
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background decoration */}
@@ -13,17 +18,17 @@ export const Hero: React.FC = () => {
       <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '1s' }} />
       
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div
+        <MotionDiv
           variants={staggerContainer}
           initial="initial"
           animate="animate"
           className="max-w-4xl mx-auto text-center"
         >
-          <motion.div variants={fadeInUp} className="mb-6">
+          <MotionDiv variants={fadeInUp} className="mb-6">
             <span className="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">
               👋 Привет, я фронтенд разработчик
             </span>
-          </motion.div>
+          </MotionDiv>
 
           <motion.h1 
             variants={fadeInUp}
@@ -43,7 +48,7 @@ export const Hero: React.FC = () => {
             Превращаю сложные задачи в элегантные решения.
           </motion.p>
 
-          <motion.div 
+          <MotionDiv 
             variants={fadeInUp}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
           >
@@ -58,10 +63,10 @@ export const Hero: React.FC = () => {
             <a href="#projects" className="btn-outline px-8 py-4">
               Смотреть проекты
             </a>
-          </motion.div>
+          </MotionDiv>
 
           {/* Stats */}
-          <motion.div 
+          <MotionDiv 
             variants={fadeInUp}
             className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto"
           >
@@ -81,10 +86,10 @@ export const Hero: React.FC = () => {
               <div className="text-3xl font-bold gradient-text">∞</div>
               <div className="text-gray-600 dark:text-gray-400">Кода</div>
             </div>
-          </motion.div>
+          </MotionDiv>
 
           {/* Scroll indicator */}
-          <motion.div
+          <MotionDiv
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 2 }}
             className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
@@ -92,8 +97,8 @@ export const Hero: React.FC = () => {
             <a href="#projects" aria-label="Scroll to projects">
               <FaArrowDown className="w-6 h-6 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300" />
             </a>
-          </motion.div>
-        </motion.div>
+          </MotionDiv>
+        </MotionDiv>
       </div>
     </section>
   );

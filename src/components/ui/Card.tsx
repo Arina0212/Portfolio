@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, MotionProps } from 'framer-motion';
 import { fadeInUp } from '../../utils/animations';
 
 interface CardProps {
@@ -22,8 +22,13 @@ export const Card: React.FC<CardProps> = ({
     lg: 'p-8'
   };
 
+  // Типизированный MotionDiv для корректной поддержки className и HTML-пропсов
+  const MotionDiv = motion.div as React.ComponentType<
+    React.HTMLAttributes<HTMLDivElement> & MotionProps
+  >;
+
   return (
-    <motion.div
+    <MotionDiv
       variants={fadeInUp}
       initial="initial"
       whileInView="animate"
@@ -31,7 +36,7 @@ export const Card: React.FC<CardProps> = ({
       className={`card ${paddingClasses[padding]} ${hoverable ? 'hover:shadow-xl' : ''} ${className}`}
     >
       {children}
-    </motion.div>
+    </MotionDiv>
   );
 };
 

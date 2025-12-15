@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, MotionProps } from 'framer-motion';
 import { skills, experiences } from '../../data/skills.data';
 import { Card, CardHeader } from '../ui/Card';
 import { groupSkillsByCategory } from '../../utils/helpers';
@@ -24,23 +24,28 @@ export const Skills: React.FC = () => {
     expert: 'from-purple-600 to-purple-500'
   };
 
+  // Типизированный MotionDiv, чтобы className и другие HTML-пропсы корректно воспринимались TypeScript
+  const MotionDiv = motion.div as React.ComponentType<
+    React.HTMLAttributes<HTMLDivElement> & MotionProps
+  >;
+
   return (
     <section id="skills" className="section">
       <div className="container">
-        <motion.div
+        <MotionDiv
           variants={staggerContainer}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
         >
-          <motion.div variants={fadeInUp} className="text-center mb-12">
+          <MotionDiv variants={fadeInUp} className="text-center mb-12">
             <h2 className="section-title">
               Мои <span className="gradient-text">навыки</span>
             </h2>
             <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               Технологии и инструменты, которые я использую для создания современных веб-приложений
             </p>
-          </motion.div>
+          </MotionDiv>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Skills by category */}
@@ -86,7 +91,7 @@ export const Skills: React.FC = () => {
                 <CardHeader title="Опыт работы" />
                 <div className="space-y-6">
                   {experiences.map((exp, index) => (
-                    <motion.div
+                    <MotionDiv
                       key={exp.id}
                       variants={fadeInUp}
                       custom={index}
@@ -121,13 +126,13 @@ export const Skills: React.FC = () => {
                           </span>
                         ))}
                       </div>
-                    </motion.div>
+                    </MotionDiv>
                   ))}
                 </div>
               </Card>
             </div>
           </div>
-        </motion.div>
+        </MotionDiv>
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, MotionProps } from 'framer-motion';
 
 interface TagProps {
   children: React.ReactNode;
@@ -27,9 +27,14 @@ export const Tag: React.FC<TagProps> = ({
     } : {}),
     ...style // Объединяем с переданным style
   };
-  
+
+  // Типизированный MotionSpan, чтобы className и style корректно воспринимались TypeScript
+  const MotionSpan = motion.span as React.ComponentType<
+    React.HTMLAttributes<HTMLSpanElement> & MotionProps
+  >;
+
   return (
-    <motion.span
+    <MotionSpan
       initial={{ scale: 0.8, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       className={`${baseClasses} ${className}`}
@@ -45,7 +50,7 @@ export const Tag: React.FC<TagProps> = ({
           ×
         </button>
       )}
-    </motion.span>
+    </MotionSpan>
   );
 };
 

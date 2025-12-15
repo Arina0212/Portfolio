@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, MotionProps } from 'framer-motion';
 
 interface LoadingSpinnerProps {
   size?: 'sm' | 'md' | 'lg';
@@ -18,9 +18,14 @@ export const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
     lg: 'w-16 h-16'
   };
 
+  // Типизированный MotionDiv, чтобы className и другие HTML-пропсы корректно воспринимались TypeScript
+  const MotionDiv = motion.div as React.ComponentType<
+    React.HTMLAttributes<HTMLDivElement> & MotionProps
+  >;
+
   const spinner = (
     <div className="flex flex-col items-center justify-center">
-      <motion.div
+      <MotionDiv
         className={`${sizeClasses[size]} border-4 border-blue-200 dark:border-blue-800 border-t-blue-600 dark:border-t-blue-400 rounded-full`}
         animate={{ rotate: 360 }}
         transition={{ duration: 1, repeat: Infinity, ease: "linear" }}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, MotionProps } from 'framer-motion';
 import { NAV_ITEMS } from '../../data/constants';
 import { ThemeToggle } from '../ui/ThemeToggle';
 import { useScrollSpy } from '../../hooks/useScrollSpy';
@@ -27,8 +27,19 @@ export const Header: React.FC = () => {
     }
   }, [isMobileMenuOpen]);
 
+  // Типизированные motion-компоненты для корректной работы className/href и прочих HTML-пропсов
+  const MotionHeader = motion.header as React.ComponentType<
+    React.HTMLAttributes<HTMLElement> & MotionProps
+  >;
+  const MotionDiv = motion.div as React.ComponentType<
+    React.HTMLAttributes<HTMLDivElement> & MotionProps
+  >;
+  const MotionAnchor = motion.a as React.ComponentType<
+    React.AnchorHTMLAttributes<HTMLAnchorElement> & MotionProps
+  >;
+
   return (
-    <motion.header
+    <MotionHeader
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -40,12 +51,12 @@ export const Header: React.FC = () => {
       <div className="container mx-auto px-4">
         <nav className="flex items-center justify-between h-16">
           {/* Logo */}
-          <motion.div
+          <MotionDiv
             whileHover={{ scale: 1.05 }}
             className="text-2xl font-bold gradient-text"
           >
             Port<span className="text-blue-600 dark:text-blue-400">folio</span>
-          </motion.div>
+          </MotionDiv>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -63,14 +74,14 @@ export const Header: React.FC = () => {
               </a>
             ))}
             <ThemeToggle />
-            <motion.a
+            <MotionAnchor
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               href="#contact"
               className="btn-primary"
             >
               Связаться
-            </motion.a>
+            </MotionAnchor>
           </div>
 
           {/* Mobile menu button */}
@@ -85,7 +96,7 @@ export const Header: React.FC = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -106,9 +117,9 @@ export const Header: React.FC = () => {
                 <ThemeToggle />
               </div>
             </div>
-          </motion.div>
+          </MotionDiv>
         )}
       </div>
-    </motion.header>
+    </MotionHeader>
   );
 };
