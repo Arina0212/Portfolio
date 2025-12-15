@@ -11,9 +11,9 @@ export const projects: IProject[] = [
       'Отправка формы заявок'
     ],
     images: {
-      thumbnail: '/assets/CarsApp.png',
-      desktop: '/assets/CarsApp.png',
-      mobile: '/assets/CarsApp.png'
+      thumbnail: '../assets/CarsApp.png',
+      desktop: './assets/CarsApp.png',
+      mobile: './assets/CarsApp.png'
     },
     links: {
       live: 'https://arina0212.github.io/cars-hw/',
@@ -35,8 +35,8 @@ export const projects: IProject[] = [
       'Комментарии'
     ],
     images: {
-      thumbnail: '../assets/IritTube.jpg',
-      desktop: '../assets/IritTubePlayer.jpg'
+      thumbnail: './assets/IritTube.jpg',
+      desktop: './assets/IritTubePlayer.jpg'
     },
     links: {
       live: 'https://arina0212.github.io/IritTube/',
@@ -60,7 +60,7 @@ export const projects: IProject[] = [
       'Награда - сказка'
     ],
     images: {
-      thumbnail: '/assets/TableForKids.png'
+      thumbnail: './assets/TableForKids.png'
     },
     links: {
       live: 'https://arina0212.github.io/TableForKids/',
@@ -83,7 +83,7 @@ export const projects: IProject[] = [
       'Добавление в избранное'
     ],
     images: {
-      thumbnail: '/assets/WWW.jpg'
+      thumbnail: './assets/WWW.jpg'
     },
     links: {
       github: 'https://github.com/Arina0212/what-to-watch',
@@ -106,7 +106,7 @@ export const projects: IProject[] = [
       'Формирование рекомендаций'
     ],
     images: {
-      thumbnail: '/assets/LEHAIM.png'
+      thumbnail: './assets/LEHAIM.png'
     },
     links: {
       github: 'https://github.com/Arina0212/Oncology_pp',
@@ -129,7 +129,7 @@ export const projects: IProject[] = [
       'Автоудаление данных'
     ],
     images: {
-      thumbnail: '/assets/Boocking.png'
+      thumbnail: './assets/Boocking.png'
     },
     links: {
       github: 'https://github.com/Arina0212/Booking_service',
@@ -150,7 +150,7 @@ export const projects: IProject[] = [
       'Сохренение корзины и избранного при входе',
     ],
     images: {
-      thumbnail: '/assets/scarabey.png'
+      thumbnail: './assets/scarabey.png'
     },
     links: {
       live: 'https://gk-udom.ru/',

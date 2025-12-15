@@ -51,7 +51,7 @@ export const About: React.FC = () => {
                 <div className="w-full h-full rounded-2xl bg-gray-100 dark:bg-gray-800">
                   {/* Placeholder for photo */}
                   <div className="w-full h-full flex items-center justify-center">
-                    <img className='rounded-2xl' src='assets/me.jpg'/>
+                    <img className='rounded-2xl' src='./assets/me.jpg'/>
                   </div>
                 </div>
               </div>
