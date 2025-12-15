@@ -14,10 +14,25 @@ interface Particle {
 export const ParticleCursor: React.FC = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [particles, setParticles] = useState<Particle[]>([]);
+  const [enabled, setEnabled] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const animationRef = useRef<number | null>(null);
 
+  // Не показывать эффект на мобильных/тач-устройствах и на узких экранах
   useEffect(() => {
+    const checkSupport = () => {
+      const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const isWide = window.innerWidth >= 768;
+      setEnabled(isWide && !isTouch);
+    };
+    checkSupport();
+    window.addEventListener('resize', checkSupport);
+    return () => window.removeEventListener('resize', checkSupport);
+  }, []);
+
+  useEffect(() => {
+    if (!enabled) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -106,13 +121,15 @@ export const ParticleCursor: React.FC = () => {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [position, particles]);
+  }, [position, particles, enabled]);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed top-0 left-0 pointer-events-none z-50"
-      style={{ opacity: 0.8 }}
-    />
+    enabled ? (
+      <canvas
+        ref={canvasRef}
+        className="fixed top-0 left-0 pointer-events-none z-50"
+        style={{ opacity: 0.8 }}
+      />
+    ) : null
   );
 };
