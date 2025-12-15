@@ -9,6 +9,12 @@ export const Hero: React.FC = () => {
   const MotionDiv = motion.div as React.ComponentType<
     React.HTMLAttributes<HTMLDivElement> & MotionProps
   >;
+  const MotionH1 = motion.h1 as React.ComponentType<
+    React.HTMLAttributes<HTMLHeadingElement> & MotionProps
+  >;
+  const MotionP = motion.p as React.ComponentType<
+    React.HTMLAttributes<HTMLParagraphElement> & MotionProps
+  >;
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -30,7 +36,7 @@ export const Hero: React.FC = () => {
             </span>
           </MotionDiv>
 
-          <motion.h1 
+          <MotionH1 
             variants={fadeInUp}
             className="text-5xl md:text-7xl font-bold mb-6"
           >
@@ -38,15 +44,15 @@ export const Hero: React.FC = () => {
             <span className="gradient-text">современные</span>
             <br />
             веб-приложения
-          </motion.h1>
+          </MotionH1>
 
-          <motion.p 
+          <MotionP 
             variants={fadeInUp}
             className="text-xl text-gray-600 dark:text-gray-300 mb-10 max-w-2xl mx-auto"
           >
             Специализируюсь на React, Vue, TypeScript и создании интуитивных пользовательских интерфейсов. 
             Превращаю сложные задачи в элегантные решения.
-          </motion.p>
+          </MotionP>
 
           <MotionDiv 
             variants={fadeInUp}

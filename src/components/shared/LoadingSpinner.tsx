@@ -22,6 +22,9 @@ export const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
   const MotionDiv = motion.div as React.ComponentType<
     React.HTMLAttributes<HTMLDivElement> & MotionProps
   >;
+  const MotionP = motion.p as React.ComponentType<
+    React.HTMLAttributes<HTMLParagraphElement> & MotionProps
+  >;
 
   const spinner = (
     <div className="flex flex-col items-center justify-center">
@@ -31,13 +34,13 @@ export const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
         transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
       />
       {text && (
-        <motion.p
+        <MotionP
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           className="mt-4 text-gray-600 dark:text-gray-400"
         >
           {text}
-        </motion.p>
+        </MotionP>
       )}
     </div>
   );
