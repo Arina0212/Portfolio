@@ -228,9 +228,9 @@ export const Contact: React.FC = () => {
                     {isSubmitting ? 'Отправка...' : 'Отправить сообщение'}
                   </Button>
 
-                  <p className="text-sm text-gray-500 text-center">
+                  {/* <p className="text-sm text-gray-500 text-center">
                     Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
-                  </p>
+                  </p> */}
                 </form>
               </Card>
             </div>
