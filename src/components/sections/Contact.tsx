@@ -161,7 +161,7 @@ export const Contact: React.FC = () => {
                 </h3>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
+                    {/* <div>
                       <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                         Имя *
                       </label>
@@ -186,7 +186,7 @@ export const Contact: React.FC = () => {
                         className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
                         placeholder="your@email.com"
                       />
-                    </div>
+                    </div> */}
                   </div>
 
                   <div>
