@@ -184,7 +184,7 @@ export const projects: IProject[] = [
     status: 'completed',
     completionDate: new Date('2026-05-29'),
     role: 'Frontend разработчик',
-    category: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Zustand']
+    category: ['Учебный проект', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Zustand']
   },
   
 ];
