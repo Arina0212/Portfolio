@@ -32,8 +32,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   return (
     <MotionArticle
       variants={fadeInUp}
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true, margin: '-60px' }}
       custom={index}
-      className="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg 
+      className="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg
                  overflow-hidden hover:shadow-2xl transition-all duration-300"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

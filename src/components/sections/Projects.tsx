@@ -11,6 +11,11 @@ export const Projects: React.FC = () => {
   const [filter, setFilter] = useState<string>('all');
   const [visibleCount, setVisibleCount] = useState(9);
 
+  const handleFilterChange = (value: string) => {
+    setFilter(value);
+    setVisibleCount(9);
+  };
+
   // Типизированный MotionDiv, чтобы className и другие HTML-пропсы корректно воспринимались TypeScript
   const MotionDiv = motion.div as React.ComponentType<
     React.HTMLAttributes<HTMLDivElement> & MotionProps
@@ -52,22 +57,21 @@ export const Projects: React.FC = () => {
           {/* Technology filter */}
           <MotionDiv variants={fadeInUp} className="mb-8">
             <div className="flex flex-wrap justify-center gap-2 mb-6">
+              <Tag
+                onClick={() => handleFilterChange('all')}
+                className={filter === 'all' ? 'bg-blue-600 text-white' : ''}
+              >
+                Все
+              </Tag>
               {allTechnologies.slice(0, 8).map(tech => (
                 <Tag
                   key={tech}
-                  onClick={() => setFilter(tech)}
-                  className={` ${
-                    filter === tech.toLowerCase() ? 'bg-blue-600 text-white' : ''
-                  }`}
+                  onClick={() => handleFilterChange(tech)}
+                  className={filter === tech ? 'bg-blue-600 text-white' : ''}
                 >
                   {tech}
                 </Tag>
               ))}
-              {allTechnologies.length > 8 && (
-                <Tag className="bg-gray-200 dark:bg-gray-700">
-                  +{allTechnologies.length - 8}
-                </Tag>
-              )}
             </div>
           </MotionDiv>
 
