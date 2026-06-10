@@ -154,13 +154,13 @@ export const Contact: React.FC = () => {
             </div>
 
             {/* Contact form */}
-            <div className="lg:col-span-2">
+            {/* <div className="lg:col-span-2">
               <Card>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
                   Напишите мне
                 </h3>
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> */}
                     {/* <div>
                       <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                         Имя *
@@ -187,7 +187,7 @@ export const Contact: React.FC = () => {
                         placeholder="your@email.com"
                       />
                     </div> */}
-                  </div>
+                  {/* </div>
 
                   <div>
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -231,9 +231,9 @@ export const Contact: React.FC = () => {
                   {/* <p className="text-sm text-gray-500 text-center">
                     Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
                   </p> */}
-                </form>
+                {/* </form>
               </Card>
-            </div>
+            </div> */}
           </div>
         </MotionDiv>
       </div>
