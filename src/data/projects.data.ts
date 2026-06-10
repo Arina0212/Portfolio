@@ -186,5 +186,67 @@ export const projects: IProject[] = [
     role: 'Frontend разработчик',
     category: ['Учебный проект', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Zustand']
   },
-  
+  {
+    id: 'PatientCabinet',
+    title: 'Личный кабинет пациента',
+    description: 'Веб-приложение для пациентов медицинской клиники',
+    detailedDescription: 'Личный кабинет пациента для управления записями, просмотра результатов анализов и истории обращений.',
+    technologies: ['Vue', 'Quasar', 'Pinia', 'SCSS'],
+    features: [
+      'Просмотр истории посещений и назначений',
+      'Доступ к результатам анализов и обследований',
+      'Управление личными данными',
+      'Просмотр предстоящих записей',
+    ],
+    images: {
+      thumbnail: './assets/PatientCabinet.png'
+    },
+    links: {live:'https://lk.gb41.org/'},
+    status: 'completed',
+    completionDate: new Date('2026-03-01'),
+    role: 'Frontend разработчик',
+    category: ['Vue', 'Quasar', 'Pinia', 'SCSS']
+  },
+  {
+    id: 'OnlineBooking',
+    title: 'Онлайн запись к врачу',
+    description: 'Сервис онлайн-записи пациентов на приём к специалистам',
+    detailedDescription: 'Сервис для самостоятельной записи пациентов на приём: выбор врача, специальности, удобного времени и клиники.',
+    technologies: ['Vue', 'Quasar', 'Pinia', 'SCSS'],
+    features: [
+      'Выбор специальности и врача',
+      'Отображение доступных слотов в расписании',
+      'Подтверждение и отмена записи',
+      'Уведомления о предстоящем приёме',
+    ],
+    images: {
+      thumbnail: './assets/OnlineBooking.png'
+    },
+    links: {live:'https://gb41.org/widget/index.html'},
+    status: 'completed',
+    completionDate: new Date('2026-04-01'),
+    role: 'Frontend разработчик',
+    category: ['Vue', 'Quasar', 'Pinia', 'SCSS']
+  },
+  {
+    id: 'RegistrarWorkplace',
+    title: 'Рабочее место регистратора',
+    description: 'АРМ регистратора медицинской организации',
+    detailedDescription: 'Автоматизированное рабочее место регистратора для управления расписанием, записями пациентов и потоком обращений.',
+    technologies: ['Vue', 'Quasar', 'Pinia', 'SCSS'],
+    features: [
+      'Управление записями пациентов',
+      'Работа с расписанием врачей',
+      'Поиск и редактирование карточки пациента',
+      'Обработка входящих обращений',
+    ],
+    images: {
+      thumbnail: './assets/RegistrarWorkplace.png'
+    },
+    links: {},
+    status: 'completed',
+    completionDate: new Date('2026-05-01'),
+    role: 'Frontend разработчик',
+    category: ['Vue', 'Quasar', 'Pinia', 'SCSS']
+  },
 ];
