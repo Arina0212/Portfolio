@@ -105,9 +105,9 @@ export const experiences = [
       'Верстка по макетам из Figma',
       'Рефакторинг кода',
       'Интеграция с REST API',
-      'Испоьзование WebSocket соединения',
+      'Использование WebSocket соединения',
       'Разворачивание frontend-приложений в Docker'
     ],
-    technologies: ['Vue', 'TypeScript', 'SCSS', 'Quasar', 'Electron', 'Docker', 'Vuex', 'Pinia']
+    technologies: ['Vue', 'Quasar', 'TypeScript', 'SCSS', 'Quasar', 'Electron', 'Docker', 'Vuex', 'Pinia']
   }
 ];

@@ -8,6 +8,6 @@ export const NAV_ITEMS = [
 
 export const SOCIAL_LINKS = [
   { name: 'GitHub', url: 'https://github.com/Arina0212', icon: 'github' },
-  { name: 'Telegram', url: 'https://t.me/arina_sh_02', icon: 'telegram' },
+  { name: 'Telegram', url: 'https://t.me/@arinka_002', icon: 'telegram' },
   { name: 'Email', url: 'mailto:arina.shubina.02@mail.ru', icon: 'email' },
 ];

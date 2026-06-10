@@ -160,5 +160,31 @@ export const projects: IProject[] = [
     role: 'Frontend разработчик',
     category: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Stoorybook']
   },
+  {
+    id: 'Protocol',
+    title: 'Умный ассистент врача',
+    description: 'Автоматизация заполнения протокола врача',
+    detailedDescription: 'Мебельный онлайн магазин.',
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Zustand'],
+    features: [
+      'Автодополнение текста',
+      'Шаблоны протоколов',
+      'Подстановка значений из справочников Минздрава',
+      'Конструктор протоколов',
+      'Прогнозирование кода диагноза МКБ-10 по описанию',
+      'Проверка протокола на соответствие клиническим рекомендациям',
+      'Проверка полноты',
+    ],
+    images: {
+      thumbnail: './assets/Заполнение протокола.png'
+    },
+    links: {
+      live: 'http://158.160.77.106:3000/login',
+    },
+    status: 'completed',
+    completionDate: new Date('2026-05-29'),
+    role: 'Frontend разработчик',
+    category: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Zustand']
+  },
   
 ];
